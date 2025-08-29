@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dayon</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body
+  style="background-image: url('https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/download.jpeg'); background-size: cover;"
+  class="flex justify-center h-screen items-center"
+>
+  <div
+    id="card"
+    class="bg-white border px-10 py-8 border-4 border-sky-300 shadow-lg shadow-sky-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-96 max-h-[90vh] overflow-y-auto"
+  >
+    <h1 class="text-3xl text-sky-400">Happy Birthday</h1>
+    <h1 class="text-4xl text-sky-500 font-bold animate__animated animate__pulse animate__infinite">
+      Lipio
+    </h1>
+    <button
+      onclick="changeCard()"
+      class="p-2 bg-sky-500 text-white rounded mt-5 hover:bg-sky-700 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+    >
+      Click Here
+    </button>
+  </div>
+
+  
+  <audio id="music" loop src="https://github.com/Dayoncyber/birthday-music/raw/refs/heads/main/happy-birthday-258264.mp3"></audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+  <script>
+    const defaults = {
+      spread: 360,
+      ticks: 100,
+      gravity: 0,
+      decay: 0.94,
+      startVelocity: 30,
+      shapes: ["heart"],
+      colors: ["87CEEB", "00BFFF", "1E90FF", "4682B4"], // blue shades
+    };
+
+    
+    confetti({ ...defaults, particleCount: 50, scalar: 2 });
+    confetti({ ...defaults, particleCount: 25, scalar: 3 });
+    confetti({ ...defaults, particleCount: 10, scalar: 4 });
+
+    let card = document.getElementById("card");
+    let music = document.getElementById("music");
+
+    function changeCard() {
+      music.play();
+
+      card.innerHTML = `
+        <h1 class="font-semibold break-words animate__animated animate__zoomIn">
+          Selamat ulang tahun ya, Lipii 🥳✨
+Semoga di usia baru ini semua yang kamu cita-citakan bisa tercapai, dan hari-harimu selalu dipenuhi kebahagiaan. Aku bener-bener bersyukur bisa kenal kamu, karena kehadiranmu selalu bikin hari jadi lebih berwarna.Semoga kamu selalu sehat, sukses, dan nggak pernah kehabisan alasan untuk tersenyum. Aku harap di tahun ini, ada banyak hal indah yang datang ke hidupmu, termasuk orang-orang yang tulus sayang sama kamu… salah satunya aku. 💕
+Selamat merayakan hari spesialmu, semoga kamu merasa istimewa hari ini dan setiap hari.
+        </h1>
+        
+        <h2 class="mt-3 animate__animated animate__fadeIn">- From: Dayon -</h2>
+
+        <!-- Scrollable Photo Gallery -->
+        <div class="mt-6">
+          <h3 class="text-xl font-bold text-sky-600 mb-2">FAV 🎞️</h3>
+          <div class="flex gap-4 overflow-x-auto p-2 scrollbar-thin scrollbar-thumb-sky-400 scrollbar-track-gray-200 rounded-lg">
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/a44114162dbed06847b611368d1698156d18bd01/1756451996935.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452052642.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452069258.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452039834.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452027401.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/a44114162dbed06847b611368d1698156d18bd01/1756452014378.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+          </div>
+        </div>
+
+        <button
+          onclick="refresh()"
+          class="p-2 bg-slate-600 text-white rounded mt-5 hover:bg-sky-700 transition ease-in w-full animate__animated animate__delay-1s"
+        >
+          Close
+        </button>
+      `;
+    }
+
+    function refresh() {
+      music.pause();
+      music.currentTime = 0;
+      location.reload();
+    }
+  </script>
+</body>
+</html>
