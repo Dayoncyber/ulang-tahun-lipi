@@ -11,30 +11,31 @@
   />
 </head>
 <body
-  style="background-image: url('https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/download.jpeg'); background-size: cover;"
+  style="background-image: url('https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/Pink%20Aesthetic%20Wallpaper%20Lockscreen-Charming%20Mobile%20Wallpaper.jpeg'); background-size: cover;"
   class="flex justify-center h-screen items-center"
 >
   <div
     id="card"
-    class="bg-white border px-10 py-8 border-4 border-sky-300 shadow-lg shadow-sky-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-96 max-h-[90vh] overflow-y-auto"
+    class="bg-white border px-10 py-8 border-4 border-pink-300 shadow-lg shadow-pink-300 rounded-xl text-center animate__animated animate__backInDown m-8 w-96 max-h-[90vh] overflow-y-auto"
   >
-    <h1 class="text-3xl text-sky-400">Happy Birthday</h1>
-    <h1 class="text-4xl text-sky-500 font-bold animate__animated animate__pulse animate__infinite">
-      Lipio
+    <h1 class="text-3xl text-pink-400"></h1>
+    <h1 class="text-4xl text-pink-500 font-bold animate__animated animate__pulse animate__infinite">
+      Falyaa💕
     </h1>
     <button
       onclick="changeCard()"
-      class="p-2 bg-sky-500 text-white rounded mt-5 hover:bg-sky-700 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
+      class="p-2 bg-pink-500 text-white rounded mt-5 hover:bg-pink-700 transition ease-in w-full animate__animated animate__delay-1s animate__tada"
     >
       Click Here
     </button>
   </div>
 
-  
   <audio id="music" loop src="https://github.com/Dayoncyber/birthday-music/raw/refs/heads/main/happy-birthday-258264.mp3"></audio>
 
   <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
   <script>
+    let step = 1; // ✅ DITAMBAHKAN
+
     const defaults = {
       spread: 360,
       ticks: 100,
@@ -42,10 +43,9 @@
       decay: 0.94,
       startVelocity: 30,
       shapes: ["heart"],
-      colors: ["87CEEB", "00BFFF", "1E90FF", "4682B4"], // blue shades
+      colors: ["#FFB6C1", "#F8C8DC", "#FFD1DC", "#FD6C9E"], // ✅ DIBETULKAN
     };
 
-    
     confetti({ ...defaults, particleCount: 50, scalar: 2 });
     confetti({ ...defaults, particleCount: 25, scalar: 3 });
     confetti({ ...defaults, particleCount: 10, scalar: 4 });
@@ -53,38 +53,84 @@
     let card = document.getElementById("card");
     let music = document.getElementById("music");
 
+    const jadianDate = new Date("2025-10-28"); // ✅ FORMAT TANGGAL BENAR
+
+    function duration() {
+      const now = new Date();
+      const days = Math.floor((now - jadianDate) / (1000*60*60*24));
+      const months = Math.floor(days / 30);
+      return { days, months };
+    }
+
     function changeCard() {
       music.play();
+      const { days, months } = duration();
 
-      card.innerHTML = `
+      if (step === 1) {
+        card.innerHTML = `
         <h1 class="font-semibold break-words animate__animated animate__zoomIn">
-          Selamat ulang tahun ya, Lipii 🥳✨
-Semoga di usia baru ini semua yang kamu cita-citakan bisa tercapai, dan hari-harimu selalu dipenuhi kebahagiaan. Aku bener-bener bersyukur bisa kenal kamu, karena kehadiranmu selalu bikin hari jadi lebih berwarna.Semoga kamu selalu sehat, sukses, dan nggak pernah kehabisan alasan untuk tersenyum. Aku harap di tahun ini, ada banyak hal indah yang datang ke hidupmu, termasuk orang-orang yang tulus sayang sama kamu… salah satunya aku. 💕
-Selamat merayakan hari spesialmu, semoga kamu merasa istimewa hari ini dan setiap hari.
-        </h1>
-        
-        <h2 class="mt-3 animate__animated animate__fadeIn">- From: Dayon -</h2>
+          Selamat ulang tahun yaa genooku 🥳✨,
 
-        <!-- Scrollable Photo Gallery -->
+Di hari kamu dilahirkan, dunia mungkin terlihat biasa saja. Tapi buat aku, hari itu adalah awal dari banyak hal indah yang belum dunia sadari.
+
+Terima kasih karena sudah hadir di hidupku.
+Kamu bukan cuma seseorang yang aku cintai, tapi juga rumah—tempat aku pulang saat lelah, tempat aku belajar sabar, dan alasan aku ingin menjadi versi diriku yang lebih baik.
+
+Aku tahu aku bukan pasangan yang sempurna kadang aku salah. Tapi satu hal yang tidak pernah berubah, rasa sayang dan pilihanku untuk tetap bersama kamu, hari ini, besok, dan seterusnya.
+
+Di ulang tahunmu ini, aku tidak hanya mendoakan kebahagiaanmu, tapi juga kebahagian kita. Semoga kamu selalu dikelilingi hal-hal baik, dan semoga aku masih diberi kesempatan untuk berjalan di sampingmu, menemani setiap proses, tawa, dan doamuu.
+
+Selamat sayangg,
+Semoga setiap langkahmu terasa ringan karena kamu tau ada aku yang selalu ada, mencintaimuu
+        </h1>
+
+        <h2 class="mt-3 animate__animated animate__fadeIn">- Dion -</h2>
+        <button onclick="changeCard()" class="mt-5 w-full p-2 bg-pink-500 text-white rounded">
+          Lanjut 💕
+        </button>`;
+        step++;
+      }
+
+      else if (step === 2) {
+        card.innerHTML = `
+        <h2 class="text-xl font-bold text-pink-500 animate__animated animate__fadeIn">
+          💖 Hari Jadian Kita 💖
+        </h2>
+
+        <p class="mt-2">28 Oktober 2025</p>
+
+        <p class="mt-4 text-sm text-gray-600">
+          Sudah bersama <b>${months}</b> bulan
+          (<b>${days}</b> hari)
+        </p>
+
+        <button onclick="changeCard()" class="mt-5 w-full p-2 bg-pink-500 text-white rounded">
+          Foto Kenangaan 📸
+        </button>`;
+        step++;
+      }
+
+      else if (step === 3) { <!-- ✅ DIBETULKAN DARI STEP 4 -->
+        card.innerHTML = `
         <div class="mt-6">
-          <h3 class="text-xl font-bold text-sky-600 mb-2">FAV 🎞️</h3>
-          <div class="flex gap-4 overflow-x-auto p-2 scrollbar-thin scrollbar-thumb-sky-400 scrollbar-track-gray-200 rounded-lg">
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/a44114162dbed06847b611368d1698156d18bd01/1756451996935.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452052642.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452069258.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452039834.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1756452027401.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
-            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/a44114162dbed06847b611368d1698156d18bd01/1756452014378.jpg" class="rounded-xl shadow-md flex-shrink-0 w-40 h-40 object-cover" />
+          <h3 class="text-xl font-bold text-pink-600 mb-2">FAV 🎞️</h3>
+          <div class="flex gap-4 overflow-x-auto p-2">
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20250724-WA0234.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20250926-WA0035.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG_20251004_212830_441.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/1759385184169.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG_20251018_201848_312.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20251029-WA0039.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/motion_photo_6590780588326086229.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/motion_photo_825730861251468095.jpg" class="rounded-xl w-40 h-40 object-cover" />
+            <img src="https://raw.githubusercontent.com/Dayoncyber/birthday-music/refs/heads/main/IMG-20260112-WA0255.jpg" class="rounded-xl w-40 h-40 object-cover" />
           </div>
         </div>
 
-        <button
-          onclick="refresh()"
-          class="p-2 bg-slate-600 text-white rounded mt-5 hover:bg-sky-700 transition ease-in w-full animate__animated animate__delay-1s"
-        >
+        <button onclick="refresh()" class="p-2 bg-slate-600 text-white rounded mt-5 w-full">
           Close
-        </button>
-      `;
+        </button>`;
+      }
     }
 
     function refresh() {
@@ -95,3 +141,4 @@ Selamat merayakan hari spesialmu, semoga kamu merasa istimewa hari ini dan setia
   </script>
 </body>
 </html>
+
